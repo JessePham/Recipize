@@ -2,7 +2,7 @@
 
 ## Getting Started
 1. Create the virtual environment
-    - `virtualenv env`
+    - `python -m virtualenv env`
 2. Activate the virtual environment
     - `source env/Scripts/activate`
 3. Install dependencies

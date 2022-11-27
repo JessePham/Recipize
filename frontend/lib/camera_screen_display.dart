@@ -14,19 +14,24 @@ class CameraScreenDisplay extends StatefulWidget {
 }
 
 class CameraScreenState extends State<CameraScreenDisplay> {
+  // Add two variables to the state class to store the CameraController and
+  // the Future.
   CameraController controller;
   Future<void> initializeControllerFuture;
 
   @override
   void initState() {
     super.initState();
+    // Create a CameraController to display the current output from the camera
     controller = CameraController(widget.camera, ResolutionPreset.medium);
-    
-    initializeControllerFuture = controller.initialize();  
+
+    // Initialize the controller. This returns a Future.
+    initializeControllerFuture = controller.initialize();
   }
 
   @override
   void dispose() {
+    // Dispose the controller whenthe widget is disposed
     controller?.dispose();
     super.dispose();
   }
@@ -39,39 +44,46 @@ class CameraScreenState extends State<CameraScreenDisplay> {
         future: initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
+            // If the Future is complete, display the preview.
+
             return CameraPreview(controller);
           } else {
+            // Otherwise, display a loading indicator.
             return Center(child: CircularProgressIndicator());
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        
-        child: Icon(Icons.camera_alt),
-        onPressed: () async {
-          try {
-            await initializeControllerFuture;
+      floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 50.0),
+          child: FloatingActionButton(
+            child: Icon(Icons.camera_alt),
+            onPressed: () async {
+              try {
+                // Ensure camera is initialized
+                await initializeControllerFuture;
 
-            final path = join(
-              (await getTemporaryDirectory()).path,
-              '${DateTime.now()}.png',
-            );
+                // Construct path where image is saved
+                final path = join(
+                  // Store picture in temp directory
+                  (await getTemporaryDirectory()).path,
+                  '${DateTime.now()}.png',
+                );
 
-            await controller.takePicture(path);
+                // Take a picture and log where it's saved
+                await controller.takePicture(path);
 
-            Navigator.push(
-              context, 
-              MaterialPageRoute(
-                builder: (context) => DisplayImage(imagePath: path)
-              )
-            );
-          } catch (error) {
-            print(error);
-          }
-        }
-      ),
+                // If picture was taken, display image on new screen
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DisplayImage(imagePath: path)));
+              } catch (e) {
+                // Log error to the console
+                print(e);
+              }
+            })
+          ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
     );
   }
 }
