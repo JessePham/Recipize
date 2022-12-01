@@ -29,7 +29,9 @@ class _IngredientsListState extends State<IngredientsList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("List of Ingredients"),
+        title: Text("List of Ingredients", style: TextStyle(fontFamily: 'Abel', fontSize: 25)),
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.black,
         actions: <Widget>[
         TextButton(
           onPressed: () async {
@@ -56,7 +58,10 @@ class _IngredientsListState extends State<IngredientsList> {
               throw Exception('Failed to load');
             }
           },
-          child: Text("Confirm"),
+          child: Text("Confirm",
+                    style: TextStyle(
+                      fontFamily: 'Abel',
+                      color: Colors.black)),
           ),
         ],
       ),
@@ -103,7 +108,8 @@ class _IngredientsListState extends State<IngredientsList> {
                 ),
               ),
               FloatingActionButton(
-                  child: Icon(Icons.add),
+                  backgroundColor: Colors.amber,
+                  child: Icon(Icons.add, color: Colors.black),
                   onPressed: () async {
                     setState(() {
                       FocusScope.of(context).unfocus();

@@ -22,6 +22,8 @@ dependencies:
   http:
   webview_flutter:
   cupertino_icons: ^1.0.0
+  badges: ^2.0.3
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   pedantic: ^1.9.0
@@ -35,6 +37,17 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Abel
+      fonts:
+        - asset: assets/fonts/Abel-Regular.ttf
+
+    - family: IndieFlower
+      fonts:
+          - asset: assets/fonts/IndieFlower-Regular.ttf
+
+
   assets:
     - assets/models/ssd_mobilenet.tflite
     - assets/models/labels_ssd_mobilenet.txt
+    - assets/icons/chefIcon2.png

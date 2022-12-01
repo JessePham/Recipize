@@ -29,10 +29,12 @@ class CupertinoStoreHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
+        backgroundColor: Colors.white,
+        activeColor: Colors.amber,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.camera),
-            label: 'Camera',
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.bookmark),
@@ -46,9 +48,10 @@ class CupertinoStoreHomePage extends StatelessWidget {
           case 0:
             returnValue = CupertinoTabView(builder: (context) {
               return CupertinoPageScaffold(
-                child: CameraScreenDisplay(
-                  camera: camera,
-                ),
+                // child: CameraScreenDisplay(
+                //   camera: camera,
+                // ),
+                child: FirstRoute()
               );
             });
             break;
