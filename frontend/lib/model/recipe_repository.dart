@@ -10,7 +10,7 @@ class RecipeRepository {
         ingredients: 'lemon, chicken, cheese, rice',
         url: 'google.com'),
     Recipe(
-        name: 'Chicken Briyani',
+        name: 'Chicken Biriyani',
         cuisine: 'Indian',
         img:
             'https://www.kannammacooks.com/wp-content/uploads/Chicken-Biryani-Recipe-Tamil-Style-Easy-Bachelor-friendly-recipe-1-31.jpg',
