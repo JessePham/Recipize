@@ -39,6 +39,7 @@ class RecipeRowItem extends StatelessWidget {
               );
           },
           child: Row(
+
             children: <Widget>[
               ClipRRect(
                   borderRadius: BorderRadius.circular(4),

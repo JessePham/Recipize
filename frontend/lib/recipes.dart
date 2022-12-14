@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-
+import './color.dart';
 import 'model/app_state_model.dart';
 import 'recipe_row_item.dart';
 import 'model/recipe.dart';
@@ -24,7 +24,8 @@ class _RecipesState extends State<Recipes> {
           semanticChildCount: widget.recipes.length,
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(
-              largeTitle: Text('Recipes'),
+              largeTitle: Text('Recipes', style: TextStyle(fontFamily: 'Abel', fontSize: 25, color: mainColor),),
+              backgroundColor: primary ,
             ),
             SliverSafeArea(
               top: false,

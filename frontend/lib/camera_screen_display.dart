@@ -39,7 +39,7 @@ class CameraScreenState extends State<CameraScreenDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Take a picture')),
+      appBar: AppBar(title: Text('Take a picture', style: TextStyle(fontFamily: 'Abel', fontSize: 25)), backgroundColor: Colors.amber,foregroundColor: Colors.black),
       body: FutureBuilder<void>(
         future: initializeControllerFuture,
         builder: (context, snapshot) {
@@ -56,7 +56,8 @@ class CameraScreenState extends State<CameraScreenDisplay> {
       floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom: 50.0),
           child: FloatingActionButton(
-            child: Icon(Icons.camera_alt),
+            backgroundColor: Colors.amber,
+            child: Icon(Icons.camera_alt, color: Colors.black),
             onPressed: () async {
               try {
                 // Ensure camera is initialized

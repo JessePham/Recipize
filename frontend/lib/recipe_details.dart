@@ -1,4 +1,5 @@
 import 'dart:io';
+import './color.dart';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -22,7 +23,8 @@ class _RecipeDetailsState extends State<RecipeDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Recipe View"), elevation: 1,),
+      appBar: AppBar(title: Text("Recipe View", style: TextStyle(fontFamily: 'Abel', fontSize: 25, color: mainColor)), elevation: 1,backgroundColor: Colors.amber,
+        foregroundColor: Colors.black,),
       body: WebView(
         initialUrl: widget.url,
       )
