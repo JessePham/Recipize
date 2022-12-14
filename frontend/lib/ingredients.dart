@@ -33,7 +33,7 @@ class _IngredientsListState extends State<IngredientsList> {
         actions: <Widget>[
         TextButton(
           onPressed: () async {
-            var url = "http://192.168.254.13:5000/${ingredients.join(',')}";
+            var url = "https://recipize-app.herokuapp.com:5000/${ingredients.join(',')}";
             var response = await http.get(Uri.parse(url));
             if (response.statusCode == 200) {
               Map parsed = jsonDecode(response.body);
